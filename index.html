@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href = "assets/css/style.css">
+</head>
+<body>
+    <div id = "playerSelect">
+        <button class = "btn-playerSelect" id = "gop1" value = "Player 1" >Player 1</button>
+        <button class = "btn-playerSelect" id = "gop2" value = "Player 2" >Player 2</button>
+        <button class = "btn-playerSelect" id = "gop3" value = "Player 3" >Player 3</button>
+        <button class = "btn-playerSelect" id = "gop4" value = "Player 4" >Player 4</button>
+    </div><!--playerSelect"-->
+    <div id = "enemySelect">
+        <button class = "btn-enemySelect" id = "goenemy1" value = "Player 1" >Fight Player 1</button>
+        <button class = "btn-enemySelect" id = "goenemy2" value = "Player 2" >Fight Player 2</button>
+        <button class = "btn-enemySelect" id = "goenemy3" value = "Player 3" >Fight Player 3</button>
+        <button class = "btn-enemySelect" id = "goenemy4" value = "Player 4" >Fight Player 4</button>
+    </div><!--enemySelect-->
+    <div id = "gameArea">
+        <button id = "attack">Attack!</button>
+        <div class = "card">
+            <p>HP: <span id = "yourHP"></span></p>
+            <p>Enemy HP: <span id = "enemyHP"></span></p>
+            <p>Attack Power: <span id = "yourAtk"></span></p>
+            <p>Enemy Attack Power: <span id = "enemyAtk"></span></p>
+        </div><!--card-->
+        <h3>It's <span id = "you"></span> vs. <span id = "me"></span>!</h3>
+    </div><!--gameArea-->
+
+    
+<script src="https://code.jquery.com/jquery-3.3.1.js" 
+ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
+ crossorigin="anonymous"></script>    
+<script src = "assets/js/game.js"></script>
+</body>
+</html>

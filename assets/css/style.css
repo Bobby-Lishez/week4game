@@ -1,0 +1,9 @@
+#playerSelect {
+    display: block;
+}
+#enemySelect {
+    display: none;
+}
+#gameArea {
+   display: none;
+}
