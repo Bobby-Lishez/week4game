@@ -1,9 +1,86 @@
-#playerSelect {
+#introScreen{
     display: block;
+    padding-top: 10px;
+}
+#title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: gold;
+}
+#playerSelect {
+    display: none;
 }
 #enemySelect {
     display: none;
 }
 #gameArea {
-   display: none;
+    display: block;
+    position: relative;
+}
+#battlefield{
+    background: red;
+    position: absolute;
+    width: 100%;
+    height: 200px;
+}
+#you{
+    height: 150px;
+    width: 150px;
+    /* background: blue; */
+    position: absolute;
+    left: 5%;
+    top: 25px;
+}
+#me {
+    height: 150px;
+    width: 150px;
+    /* background: blue; */
+    position: absolute;
+    right: 5%;
+    top: 25px;
+}
+#attackButton {
+    position: relative;
+    margin-top: 200px;
+}
+#victoryScreen {
+    display: none;
+}
+#gameOverScreen {
+    display: none;
+}
+#yourHP {
+    font-size: 25px;
+    color: green;
+}
+#enemyHPLabel {
+    text-align: right;
+}
+#enemyHP {
+    font-size: 25px;
+    color: green;
+}
+#yourAtk {
+    font-size: 25px;
+}
+#enemyAtkLabel {
+    text-align: right;
+}
+#enemyAtk {
+    font-size: 25px;
+}
+
+.screenPic{
+    width: 100%;
+}
+.btn-playerSelect{
+    display: block;
+}
+.btn-enemySelect{
+    display: block;
+}
+.playerPic {
+    height: 150px;
+    width: 150px;
 }

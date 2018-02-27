@@ -7,33 +7,70 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <link rel = "stylesheet" type = "text/css" href = "assets/css/style.css">
+
 </head>
 <body>
+    <div class = "container">
+    <div id = "introScreen" class = "jumbotron">
+        <p>Compu-Global Hyper-MegaNet presents:</p>
+        <p id = "title">Springfield Elementary Model U.N. club Diplomacy Simulator</p>
+        <button id = "start">New Game</button>
+    </div>
     <div id = "playerSelect">
-        <button class = "btn-playerSelect" id = "gop1" value = "Player 1" >Player 1</button>
-        <button class = "btn-playerSelect" id = "gop2" value = "Player 2" >Player 2</button>
-        <button class = "btn-playerSelect" id = "gop3" value = "Player 3" >Player 3</button>
-        <button class = "btn-playerSelect" id = "gop4" value = "Player 4" >Player 4</button>
+        <p>Choose your "diplomat"!</p>
+        <div class = "row">
+            <button class = "btn-playerSelect" id = "gop1" value = "Player 1" ><img src = "assets/images/libya_faceleft.jpg" class="img-fluid playerPic"></button>
+            <button class = "btn-playerSelect" id = "gop2" value = "Player 2" ><img src = "assets/images/japan_faceright.jpg" class="img-fluid playerPic"></button>
+            <button class = "btn-playerSelect" id = "gop3" value = "Player 3" ><img src = "assets/images/canada_faceleft.jpg" class= "img-fluid playerPic"></button>
+            <button class = "btn-playerSelect" id = "gop4" value = "Player 4" ><img src = "assets/images/poland_faceleft.jpg" class="img-fluid playerPic"></button>
+        </div><!--row-->
     </div><!--playerSelect"-->
     <div id = "enemySelect">
-        <button class = "btn-enemySelect" id = "goenemy1" value = "Player 1" >Fight Player 1</button>
-        <button class = "btn-enemySelect" id = "goenemy2" value = "Player 2" >Fight Player 2</button>
-        <button class = "btn-enemySelect" id = "goenemy3" value = "Player 3" >Fight Player 3</button>
-        <button class = "btn-enemySelect" id = "goenemy4" value = "Player 4" >Fight Player 4</button>
+        <p>Choose your opponent!</p>
+        <div class = "row">
+            <button class = "btn-enemySelect" id = "goenemy1" value = "Player 1" ><img src = "assets/images/libya_faceleft.jpg" class="img-fluid playerPic"></button>
+            <button class = "btn-enemySelect" id = "goenemy2" value = "Player 2" ><img src = "assets/images/japan_faceright.jpg" class="img-fluid playerPic"></button>
+            <button class = "btn-enemySelect" id = "goenemy3" value = "Player 3" ><img src = "assets/images/canada_faceleft.jpg" class="img-fluid playerPic"></button>
+            <button class = "btn-enemySelect" id = "goenemy4" value = "Player 4" ><img src = "assets/images/poland_faceleft.jpg" class="img-fluid playerPic"></button>
+        </div><!--row-->
     </div><!--enemySelect-->
     <div id = "gameArea">
-        <button id = "attack">Attack!</button>
         <div class = "card">
-            <p>HP: <span id = "yourHP"></span></p>
-            <p>Enemy HP: <span id = "enemyHP"></span></p>
-            <p>Attack Power: <span id = "yourAtk"></span></p>
-            <p>Enemy Attack Power: <span id = "enemyAtk"></span></p>
+            <div class = "row">
+                <div class = "col-sm-6">
+                <p>HP: <span id = "yourHP"></span></p>
+                </div>
+                <div class = "col-sm-6">
+                <p id = "enemyHPLabel">Enemy HP: <span id = "enemyHP"></span></p>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-sm-6">
+                <p>Attack Power: <span id = "yourAtk"></span></p>
+                </div>
+                <div class = "col-sm-6">
+                <p id = "enemyAtkLabel">Enemy Attack Power: <span id = "enemyAtk"></span></p>
+                </div>
+            </div>
         </div><!--card-->
-        <h3>It's <span id = "you"></span> vs. <span id = "me"></span>!</h3>
+        <div id = "battlefield">
+            <div id = "you"></div>
+            <div id = "me"></div>
+        </div>
+        <div id = "attackButton"><button id = "attack" disabled>Attack!</button></div>
     </div><!--gameArea-->
+    <div id = "victoryScreen">
+        <img src = "assets/images/victory.jpg" class = "screenPic" alt = "victory">
+    </div>
+    <div id = "gameOverScreen">
+        <img src = "assets/images/game_over.jpg" class = "screenPic" alt = "gameOver">
+    </div>
+    </div><!--container-->
 
-    
+<audio id = "gameSounds" src = "assets/sounds/canada_select.ogg"></audio>  
+<!-- <audio id = "gameSounds2" src = "assets/sounds/canada_defeat.ogg"></audio>  -->
 <script src="https://code.jquery.com/jquery-3.3.1.js" 
  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
  crossorigin="anonymous"></script>    
