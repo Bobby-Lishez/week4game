@@ -7,7 +7,7 @@
         ctrAtk: 10,
         atkfx: 1000,
         dftfx: 5932,
-        vicfx: 3181
+        vicfx: 3381
     };
     var p2 = {
         name: "japan",
@@ -32,7 +32,7 @@
         hp: 75,
         atk: 8,
         ctrAtk: 50,
-        atkfx: 2118,
+        atkfx: 2318,
         dftfx: 6675,
         vicfx: 1381
     };
@@ -58,7 +58,7 @@
         vicfx: 0
     };
     var sfx = document.querySelector("#gameSounds");
-    //var sfx2 = document.querySelector("#gameSounds2");
+    var distance = $("#battlefield").width();
     //function to choose active player
     function loadSelf(object) {
         //active player stats set to the chosen character's stats
@@ -73,10 +73,10 @@
         player.vicfx = object.vicfx;
         //update the screen
         document.querySelector("#yourHP").style.color = "black";
+        $("#playerWeapon").html("<img src = assets/images/" + player.name + "_weapon.png class = weaponPic>")
         $("#yourHP").text(player.hp);
         $("#yourAtk").text(player.atk);
         sfx.src = "assets/sounds/" + object.name + "_select.ogg";
-        console.log(sfx.duration);
         sfx.play();
     }
     //function to choose active opponent
@@ -92,6 +92,7 @@
         opponent.vicfx = object.vicfx;
         //update the screen
         document.querySelector("#enemyHP").style.color = "black";
+        $("#opponentWeapon").html("<img src = assets/images/" + opponent.name + "_weapon.png class = weaponPic>")
         $("#enemyHP").text(opponent.hp);
         $("#enemyAtk").text(opponent.atk);
         document.querySelector("#attack").disabled = false;
@@ -121,7 +122,6 @@
             setTimeout(goAgain, opponent.dftfx);
         function goAgain() {
             $("#you").html("<img src = assets/images/" + player.name + "_faceright.jpg class = playerPic>");
-            document.querySelector("#gameArea").style.display = "none";
             document.querySelector("#enemySelect").style.display = "block";
         }
     }
@@ -141,6 +141,12 @@
         document.querySelector("#goenemy2").style.display = "block";
         document.querySelector("#goenemy3").style.display = "block";
         document.querySelector("#goenemy4").style.display = "block";
+        $("#me").html("");
+        $("#you").html('');
+        $("#yourHP").text("");
+        $("#yourAtk").text("");
+        $("#enemyHP").text("");
+        $("#enemyAtk").text("");
     }
     //game over function. Alert defeat and reset the game
     function gameOver() {
@@ -157,10 +163,17 @@
         document.querySelector("#goenemy2").style.display = "block";
         document.querySelector("#goenemy3").style.display = "block";
         document.querySelector("#goenemy4").style.display = "block";
+        $("#me").html("");
+        $("#you").html('');
+        $("#yourHP").text("");
+        $("#yourAtk").text("");
+        $("#enemyHP").text("");
+        $("#enemyAtk").text("");
     }
     //click listener for intro screen
     $("#start").click(function(){
         document.querySelector("#playerSelect").style.display = "block";
+        document.querySelector("#gameArea").style.display = "block";
         document.querySelector("#start").style.display = "none";
         document.querySelector("#victoryScreen").style.display = "none";
         document.querySelector("#gameOverScreen").style.display = "none";
@@ -201,8 +214,6 @@
     $(".btn-enemySelect").click(function(event) {
         //hide the enemy select screen and bring up the game area
         document.querySelector("#enemySelect").style.display = "none";
-        document.querySelector("#gameArea").style.display = "block";
-        
         //set active enemy and disable that character from being chosen again
         switch (event.currentTarget.id){
             case "goenemy1": 
@@ -234,8 +245,19 @@
     $("#attack").click(function() {
         //player attacks first; battle ends if opp. defeated.
         document.querySelector("#attack").disabled = true;
+        //attack sound
         sfx.src = "assets/sounds/" + player.name + "_attack.ogg";
         sfx.play();
+        //attack animation
+        distance = ($("#battlefield").width() - $("#me").width());
+        document.querySelector("#playerWeapon").style.visibility = "visible";
+        $("#playerWeapon").animate({left: distance},800,function(){
+            document.querySelector("#playerWeapon").style.visibility = "hidden";
+            $("#playerWeapon").animate({left: "50px"},1);
+        });
+        //document.querySelector("#playerWeapon").style.visibility = "hidden";
+
+        //attack result
         opponent.hp -= player.atk;
         if (opponent.hp < (opponent.maxHp / 2)) {document.querySelector("#enemyHP").style.color = "yellow";}
         if (opponent.hp < (opponent.maxHp / 4)) {document.querySelector("#enemyHP").style.color = "red";}
@@ -246,8 +268,17 @@
         if (opponent.hp < 1) {youWin();}
         else {
             //otherwise, opp. attacks back; battle ends if player defeated. 
+            //attack sound
             sfx.src = "assets/sounds/" + opponent.name + "_attack.ogg";
             sfx.play();
+            //attack animation
+            distance = ($("#battlefield").width() - $("#you").width());
+            document.querySelector("#opponentWeapon").style.visibility = "visible";
+            $("#opponentWeapon").animate({right: distance},800,function(){
+                document.querySelector("#opponentWeapon").style.visibility = "hidden";
+                $("#opponentWeapon").animate({right: "50px"},1);
+            });
+            //attack result
             player.hp -= opponent.atk;
             if (player.hp < (player.maxHp / 2)) {document.querySelector("#yourHP").style.color = "yellow";}
             if (player.hp < (player.maxHp / 4)) {document.querySelector("#yourHP").style.color = "red";}
@@ -258,7 +289,6 @@
             if (player.hp < 1) {gameOver();}
             //if the battle continues, player's attack power increases.
             else {
-                debugger;
                 player.atk += player.baseAtk;
                 $("#yourAtk").text(player.atk);
                 document.querySelector("#attack").disabled = false;

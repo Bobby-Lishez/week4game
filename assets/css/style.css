@@ -84,3 +84,27 @@
     height: 150px;
     width: 150px;
 }
+.weaponPic {
+    height: 40px;
+    width: 40px;
+}
+#playerWeapon {
+    z-index: 10;
+    height: 40px;
+    width: 40px;
+    /* background: green; */
+    position: relative;
+    left: 50px;
+    top: 50px;
+    visibility: hidden;
+}
+#opponentWeapon {
+    z-index: 10;
+    height: 40px;
+    width: 40px;
+    /* background: green; */
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    visibility: hidden;
+}

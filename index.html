@@ -21,19 +21,19 @@
     <div id = "playerSelect">
         <p>Choose your "diplomat"!</p>
         <div class = "row">
-            <button class = "btn-playerSelect" id = "gop1" value = "Player 1" ><img src = "assets/images/libya_faceleft.jpg" class="img-fluid playerPic"></button>
-            <button class = "btn-playerSelect" id = "gop2" value = "Player 2" ><img src = "assets/images/japan_faceright.jpg" class="img-fluid playerPic"></button>
-            <button class = "btn-playerSelect" id = "gop3" value = "Player 3" ><img src = "assets/images/canada_faceleft.jpg" class= "img-fluid playerPic"></button>
-            <button class = "btn-playerSelect" id = "gop4" value = "Player 4" ><img src = "assets/images/poland_faceleft.jpg" class="img-fluid playerPic"></button>
+            <button class = "btn-playerSelect" id = "gop1" value = "Player 1" ><p>Libya</p><img src = "assets/images/libya_faceleft.jpg" class="img-fluid playerPic"><p>HP: 100</p></button>
+            <button class = "btn-playerSelect" id = "gop2" value = "Player 2" ><p>Japan</p><img src = "assets/images/japan_faceright.jpg" class="img-fluid playerPic"><p>HP: 200</p></button>
+            <button class = "btn-playerSelect" id = "gop3" value = "Player 3" ><p>Canada</p><img src = "assets/images/canada_faceleft.jpg" class= "img-fluid playerPic"><p>HP: 400</p></button>
+            <button class = "btn-playerSelect" id = "gop4" value = "Player 4" ><p>Poland</p><img src = "assets/images/poland_faceleft.jpg" class="img-fluid playerPic"><p>HP: 75</p></button>
         </div><!--row-->
     </div><!--playerSelect"-->
     <div id = "enemySelect">
         <p>Choose your opponent!</p>
         <div class = "row">
-            <button class = "btn-enemySelect" id = "goenemy1" value = "Player 1" ><img src = "assets/images/libya_faceleft.jpg" class="img-fluid playerPic"></button>
-            <button class = "btn-enemySelect" id = "goenemy2" value = "Player 2" ><img src = "assets/images/japan_faceright.jpg" class="img-fluid playerPic"></button>
-            <button class = "btn-enemySelect" id = "goenemy3" value = "Player 3" ><img src = "assets/images/canada_faceleft.jpg" class="img-fluid playerPic"></button>
-            <button class = "btn-enemySelect" id = "goenemy4" value = "Player 4" ><img src = "assets/images/poland_faceleft.jpg" class="img-fluid playerPic"></button>
+            <button class = "btn-enemySelect" id = "goenemy1" value = "Player 1" ><p>Libya</p><img src = "assets/images/libya_faceleft.jpg" class="img-fluid playerPic"><p>HP: 100</p></button>
+            <button class = "btn-enemySelect" id = "goenemy2" value = "Player 2" ><p>Japan</p><img src = "assets/images/japan_faceright.jpg" class="img-fluid playerPic"><p>HP: 200</p></button>
+            <button class = "btn-enemySelect" id = "goenemy3" value = "Player 3" ><p>Canada</p><img src = "assets/images/canada_faceleft.jpg" class="img-fluid playerPic"><p>HP: 400</p></button>
+            <button class = "btn-enemySelect" id = "goenemy4" value = "Player 4" ><p>Poland</p><img src = "assets/images/poland_faceleft.jpg" class="img-fluid playerPic"><p>HP: 75</p></button>
         </div><!--row-->
     </div><!--enemySelect-->
     <div id = "gameArea">
@@ -57,14 +57,18 @@
         </div><!--card-->
         <div id = "battlefield">
             <div id = "you"></div>
+            <div id = "playerWeapon"></div>
+            <div id = "opponentWeapon"></div>
             <div id = "me"></div>
         </div>
         <div id = "attackButton"><button id = "attack" disabled>Attack!</button></div>
     </div><!--gameArea-->
     <div id = "victoryScreen">
+        <p>Well done! You have achieved peace in our time!</p>
         <img src = "assets/images/victory.jpg" class = "screenPic" alt = "victory">
     </div>
     <div id = "gameOverScreen">
+        <p>Diplomacy has failed! Mutually Assured Destruction is the only remaining option!</p>
         <img src = "assets/images/game_over.jpg" class = "screenPic" alt = "gameOver">
     </div>
     </div><!--container-->
